@@ -11,7 +11,7 @@ app.get("/health", (req, res) => {
 
 app.get("/chk-rds",async(req,res)=>{
   let result = await pool.query("select * from COMPANY");
-  let [resOb] = result;
+  let [resOb] = result.rows;
   res.status(200).json({
     data:resOb
   });
